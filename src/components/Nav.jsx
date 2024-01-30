@@ -1,8 +1,11 @@
-import { headerLogo } from '../assets/images'
-import { hamburger } from '../assets/icons'
-import { navLinks } from '../constants'
+import React, { useState } from 'react';
+import { hamburger, times } from "../assets/icons";
+import { headerLogo } from "../assets/images";
+import { navLinks } from "../constants";
 
 const Nav = () => {
+    const [nav, setNav] = useState(false);
+
     return (
         <header className='padding-x py-8 absolute z-10 w-full'>
             <nav className='flex justify-between items-center max-container'>
@@ -20,19 +23,20 @@ const Nav = () => {
                         <li key={item.label}>
                             <a
                                 href={item.href}
-                                className='font-montserrat leading-normal text-lg text-slate-gray'
+                                className='font-montserrat leading-normal text-lg text-slate-gray hover:text-black hover:scale-105 duration-200'
                             >
                                 {item.label}
                             </a>
                         </li>
                     ))}
                 </ul>
-                <div className='hidden max-lg:block'>
+
+                <div className='hidden max-lg:block hover:text-black hover:scale-105 duration-200'>
                     <img src={hamburger} alt='hamburger icon' width={25} height={25} />
                 </div>
             </nav>
         </header>
-    )
-}
+    );
+};
 
-export default Nav
+export default Nav;
